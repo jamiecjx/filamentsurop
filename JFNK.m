@@ -33,34 +33,36 @@ global Nf       % Number of filaments
 global d        % Distance between filaments
 
 % Simulation parameters (to edit)
-Nf = 2;
-N = 20;
-d = 2.2*N;
-ndts = 200;
-t0 = 9.65;
-x0 = u2(end,:);
-new_x = [t0, x0]';
-f = 100;
+data = load("JFNKinput.mat")
 
-FFTip = true;
-FFLength = false;
+Nf = data.Nf;
+N = data.N;
+d = data.d;
+ndts = data.ndts;
+t0 = data.t0;
+x0 = data.x0;
+new_x = [t0, x0]';
+f = data.f;
+
+FFTip = data.FFTip;
+FFLength = data.FFLength;
 
 n       = 3*(N-1)*Nf+1;	% Dimension of system, including unknown params
-mgmres  = 5;	% max GMRES iterations
-nits    = 150 ;	    % max Newton iterations
-rel_err = 1d-6;%1d-8;	% Relative error |F|/|x| %% i've changed this to be the error |F|: edited bottom of this script, and saveorbit
+mgmres  = data.mgmres;	% max GMRES iterations
+nits    = data.nits ;	    % max Newton iterations
+rel_err = data.rel_err;%1d-8;	% Relative error |F|/|x| %% i've changed this to be the error |F|: edited bottom of this script, and saveorbit
 
-del     = -1d0 ;	% These rarely need changing for any problem
-mndl    = 1d-20 ;
-mxdl    = 1d+20 ;
-gtol    = 1d-4;%1d-3 ;
-epsJ    = 1d-6;%1d-5 ;
+del     = data.del ;	% These rarely need changing for any problem
+mndl    = data.mndl ;
+mxdl    = data.mxdl ;
+gtol    = data.gtol;%1d-3 ;
+epsJ    = data.epsJ;%1d-5 ;
 
-fixT = 0;
+fixT = data.fixT;
 
 
 % plot initial guess
-plot_result
+% plot_result
 
 % scale parameters by |x| then call black box
 ds = sqrt(dotprd(-1,new_x,new_x)) ; % had to change this: was overwriting d...
@@ -75,7 +77,8 @@ info = NewtonHook(@getrhs, @multJ, @multJp, @saveorbit, @dotprd, ...
                mgmres, n, gtol, tol, del, mndl, mxdl, nits, info) ;
 
 % plot final solution
-plot_result
+% plot_result
+save("JFNKoutput.mat")
 
 %*************************************************************************
 % END PROGRAM MAIN
