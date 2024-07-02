@@ -1,6 +1,6 @@
 global d
 global f
-
+global new_x
 data = load("continuationinput.mat")
 
 % d = 2.2*N;
