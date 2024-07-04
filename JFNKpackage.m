@@ -81,7 +81,7 @@ info = 1 ;
 info = NewtonHook(@getrhs, @multJ, @multJp, @saveorbit, @dotprd, ...
                mgmres, n, gtol, tol, del, mndl, mxdl, nits, info) ;
 
-save("JFNKoutput.mat")
+save("JFNKpackageoutput.mat", "new_x")
 
 %*************************************************************************
 % END PROGRAM MAIN
