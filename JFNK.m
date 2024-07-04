@@ -38,21 +38,6 @@ Nf = 2;
 N = 20;
 ndts = 200;
 
-% DISTANCE APART
-
-% d = 2*2.2*N;
-% 
-% 
-% t0 = 9.65;
-% x0 = jfnkstartantiphase;
-% new_x = [t0, x0]'
-% % FOLLOWER FORCE
-% f = 100;
-data = load("antiphasedatajfnk.mat")
-d = data.d;
-f = data.f;
-new_x = data.new_x;
-
 % DO NOT ALTER
 
 FFTip = true;
@@ -72,10 +57,6 @@ fixT = 0; % NOT FIXED POINTS
 % PARAMETERS THAT ARE DETERMINED BY OLD PARAMETERS
 n       = 3*(N-1)*Nf+1;	% Dimension of system, including unknown params
 
-
-% plot initial guess
-% plot_result
-
 % scale parameters by |x| then call black box
 ds = sqrt(dotprd(-1,new_x,new_x)) ; % had to change this: was overwriting d...
 %% do we want rel_err?
@@ -87,10 +68,6 @@ mxdl = mxdl    * ds ;
 info = 0 ;
 info = NewtonHook(@getrhs, @multJ, @multJp, @saveorbit, @dotprd, ...
                mgmres, n, gtol, tol, del, mndl, mxdl, nits, info) ;
-
-% plot final solution
-% plot_result
-save("JFNKoutput.mat")
 
 %*************************************************************************
 % END PROGRAM MAIN
