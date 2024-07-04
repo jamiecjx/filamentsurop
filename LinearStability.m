@@ -20,7 +20,7 @@ difference = 1;
 Number_Evals_We_Want = 6;
 
 % Set-up Filament code parameters
-N = 20; Nf=1;
+N = 20; Nf=2;
 
 V = zeros(3*(N-1)*Nf,1);
 H = zeros(3*(N-1)*Nf,3*(N-1));
@@ -42,7 +42,7 @@ while difference>tol
 
     iter = iter+1;
     
-    v = main(f,reshape(xstar + epsilon*V(:,iter),3*(N-1),[]),dt,N,Nf,d,ndts,FFTip,FFLength,0);
+    v = initialvalueproblem2(f,reshape(xstar + epsilon*V(:,iter),3*(N-1),[]),dt,N,Nf,d,ndts,FFTip,FFLength,0);
 
     v = v(end,:)';
 
