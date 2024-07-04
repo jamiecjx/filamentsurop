@@ -29,4 +29,4 @@ for i=1:numf
     continuationarray(:,i+1) = new_x;
 end
 
-save(sprintf('f0_%i_f1_%i_d_%i_df_%i',f0,f1,d,df), "continuationarray");
+save(sprintf('f0_%i_f1_%i_d_%i_df_%i_phase_0.5',f0,f1,d,df), "continuationarray");
