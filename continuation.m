@@ -1,7 +1,9 @@
 global d
 global f
 global new_x
-data = load("continuationinput.mat")
+data = load("continuationinputantiphase.mat")
+
+% save("continuationinputantiphase.mat", "d", "f0", "f1", "numf", "new_x")
 
 % d = 2.2*N;
 % f0 = 100;
@@ -13,7 +15,7 @@ d = data.d;
 f0 = data.f0;
 f1 = data.f1;
 numf = data.numf;
-new_x = data.xt0;
+new_x = data.new_x;
 
 df = (f1-f0)/numf;
 
