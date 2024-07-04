@@ -20,7 +20,7 @@ f = 100;
 u = zeros(57,2);
 % u(2:3:end, :) = 10^-1*randn(19,2);
 u(2:3:end, 2) = 10^-2*randn(19,1);
-u(2:3:end, 1) = u(2:3:end, 2) + 10^-3*randn(19,1);
+u(2:3:end, 1) = -u(2:3:end, 2) + 10^-5*randn(19,1);
 
 % u = reshape(un(:,end-1), 2, [])
 
@@ -33,7 +33,7 @@ vid = 1;
 Nf = 2;%2; % Number of filaments.
 mu = 1; % Fluid viscosity. leave fixed
 L = 2.2*Np
-d = L;%L/2;
+d = 2*L;%L/2;
 % gamma = 0.1;
 % d = L/exp(gamma * log(L));
 % log(L/d)/log(L)
@@ -171,7 +171,7 @@ axis equal;
 
 L = 2.2*Np;
 
-zlim([-1, L+10]); xlim([-50,50]); ylim([-50,50]); 
+zlim([-1, L+10]); xlim([-70,70]); ylim([-70,70]); 
 
 xlabel('X'); ylabel('Y'); zlabel('Z');
 

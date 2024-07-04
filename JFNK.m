@@ -40,14 +40,18 @@ ndts = 200;
 
 % DISTANCE APART
 
-% d = 2.2*N;
+% d = 2*2.2*N;
 % 
 % 
 % t0 = 9.65;
-% x0 = u2(end,:);
+% x0 = jfnkstartantiphase;
+% new_x = [t0, x0]'
 % % FOLLOWER FORCE
 % f = 100;
-
+data = load("antiphasedatajfnk.mat")
+d = data.d;
+f = data.f;
+new_x = data.new_x;
 
 % DO NOT ALTER
 
@@ -65,7 +69,7 @@ epsJ    = 1d-6;%1d-5 ;
 
 fixT = 0; % NOT FIXED POINTS
 
-% PARAMETERS THAT AR DETERMINED BY OLD PARAMETERS
+% PARAMETERS THAT ARE DETERMINED BY OLD PARAMETERS
 n       = 3*(N-1)*Nf+1;	% Dimension of system, including unknown params
 
 
