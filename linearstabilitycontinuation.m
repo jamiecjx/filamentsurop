@@ -21,8 +21,8 @@ parfor i=1:numf+1
     f = f0+df*(i-1);
     new_x = continuationarray(:, i);
     fprintf('floquet: starting iteration with f=%i\n',f) ;
-    [eval, evec] = LinearStability(f, 44, new_x(1), new_x(2:end), 200);
-    evalarray(i, :) = eval
+    [eval, evec] = LinearStability(f, d, new_x(1), new_x(2:end), 200);
+    evalarray(i, :) = eval;
     evecarray(i, :, :) = evec;
 end
 
