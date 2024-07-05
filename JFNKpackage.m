@@ -41,10 +41,15 @@ ndts = 200;
 
 % ALTER THESE
 
-data = load("antiphasedatajfnk.mat")
+data = load("jfnkdata.mat")
 d = data.d;
 f = data.f;
 new_x = data.new_x;
+
+% save("jfnkdata.mat", "d", "f", "new_x")
+% d = 88;
+% f = 100;
+% new_x = continuationarray(:, 1);
 
 % DO NOT ALTER
 
