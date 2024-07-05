@@ -2,12 +2,12 @@ global d
 global f
 global new_x
 
-data = load('f0_100_f1_200_d_44_df_1_phase_0.mat')
+data = load('f0_100_f1_200_d_88_df_1_phase_0.5.mat')
 
 % save("continuationinputantiphase.mat", "d", "f0", "f1", "numf", "new_x")
 continuationarray = data.continuationarray;
 
-d = 44;
+d = 88;
 f0 = 100;
 f1 = 200;
 numf = 100;
