@@ -1,9 +1,9 @@
 global d
 global f
 global new_x
-data = load("continuationinputantiphase.mat")
+data = load("continuationinput.mat")
 
-% save("continuationinputantiphase.mat", "d", "f0", "f1", "numf", "new_x")
+% save("continuationinput.mat", "d", "f0", "f1", "numf", "new_x")
 
 % d = 2.2*N;
 % f0 = 100;
@@ -29,4 +29,4 @@ for i=1:numf
     continuationarray(:,i+1) = new_x;
 end
 
-save(sprintf('f0_%i_f1_%i_d_%i_df_%i_phase_0.5.mat',f0,f1,d,df), "continuationarray");
+save(sprintf('f0_%i_f1_%i_d_%i_df_%i_phase_0.mat',f0,f1,d,df), "continuationarray");
