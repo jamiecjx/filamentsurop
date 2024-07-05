@@ -26,5 +26,5 @@ parfor i=1:numf+1
     evecarray(i, :, :) = evec;
 end
 
-save(sprintf('linearstability_f0_%i_f1_%i_d_%i_df_%i_phase_0',f0,f1,d,df), ...
+save(sprintf('linearstability_f0_%i_f1_%i_d_%i_df_%i_phase_0.5',f0,f1,d,df), ...
     "evalarray", "evecarray", "f0", "f1", "d", "df");
