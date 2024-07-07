@@ -23,6 +23,7 @@ FFLength = false;
 % ALTER THESE
 f = fa;
 d = da;
+phase
 % END ALTER THESE
 
 u = zeros(57,2);
@@ -40,7 +41,7 @@ T_dt = dataperiod(end) - start_dt;
 
 end_dt = round(start_dt+phase*T_dt)
 
-new_x =  [T, out(start_dt, 1:3*(N-1)), out(end_dt, 3*(N-1)+1:end)]'
+new_x =  [T, out(start_dt, 1:3*(N-1)), out(end_dt, 3*(N-1)+1:end)]';
 
 JFNK
 

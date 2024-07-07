@@ -19,11 +19,10 @@ function [EffLieAlgebra] = main2
 f = 100;
 u = zeros(57,2);
 % u(2:3:end, :) = 10^-1*randn(19,2);
-data = load('baseivp_f_100_d_88_phase_0.mat')
 u(2:3:end, 2) = 10^-2*randn(19,1);
 u(2:3:end, 1) = u(2:3:end, 2);
-
-u = data.baseivp_f_100_d_88_phase_0;
+data = load('jfnk_f_100_d_88_phase_6.666667e-01.mat')
+u = data.new_x;
 u = u(2:end)
 
 u = reshape(u, 57, [])
