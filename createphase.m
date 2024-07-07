@@ -23,6 +23,7 @@ f=100;
 d=88;
 phase=0;
 % END ALTER THESE
+
 u = zeros(57,2);
 pert = load("fixedperturbation.mat");
 u(2:3:end, 2) = pert.pert;
