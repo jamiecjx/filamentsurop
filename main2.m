@@ -16,13 +16,17 @@ function [EffLieAlgebra] = main2
 %         vid = 1 to plot filament and save video, 0 otherwise
 
 % Variables to get started:
-f = 200;
+f = 100;
 u = zeros(57,2);
 % u(2:3:end, :) = 10^-1*randn(19,2);
+data = load('baseivp_f_100_d_88_phase_0.mat')
 u(2:3:end, 2) = 10^-2*randn(19,1);
-u(2:3:end, 1) = -u(2:3:end, 2) + 10^-5*randn(19,1);
+u(2:3:end, 1) = u(2:3:end, 2);
 
-% u = reshape(un(:,end-1), 2, [])
+u = data.baseivp_f_100_d_88_phase_0;
+u = u(2:end)
+
+u = reshape(u, 57, [])
 
 dt = 0.05;
 Np = 20; % leave fixed
