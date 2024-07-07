@@ -1,3 +1,5 @@
+function new_x = createphase(fa, da, phase)
+
 global new_x	% Current best x
 global ndts		% Number of timesteps taken in period T
 global fixT		% Fix T for equilibrium, rather than PO solution
@@ -19,9 +21,8 @@ FFTip = true;
 FFLength = false;
 
 % ALTER THESE
-f=100;
-d=88;
-phase=0;
+f = fa;
+d = da;
 % END ALTER THESE
 
 u = zeros(57,2);
@@ -45,3 +46,4 @@ JFNK
 
 save(sprintf('jfnk_f_%i_d_%i_phase_%i.mat',f,d,phase), ...
     "f", "d", "new_x", "phase");
+end
