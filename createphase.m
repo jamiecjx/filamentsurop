@@ -1,4 +1,4 @@
-function new_x = createphase(fa, da, phase)
+function new_x = createphase(fa, da, phase, ndtsa)
 
 global new_x	% Current best x
 global ndts		% Number of timesteps taken in period T
@@ -14,7 +14,7 @@ global d        % Distance between filaments
 % FIXED PARAMETERS
 Nf = 2;
 N = 20;
-ndts = 200;
+ndts = ndtsa;
 % DO NOT ALTER
 
 FFTip = true;

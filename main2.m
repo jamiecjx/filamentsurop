@@ -16,27 +16,30 @@ function [EffLieAlgebra] = main2
 %         vid = 1 to plot filament and save video, 0 otherwise
 
 % Variables to get started:
-f = 100;
+f = 250;
 u = zeros(57,2);
 % u(2:3:end, :) = 10^-1*randn(19,2);
 u(2:3:end, 2) = 10^-2*randn(19,1);
 u(2:3:end, 1) = u(2:3:end, 2);
-data = load('jfnk_f_100_d_88_phase_6.666667e-01.mat')
+data = load('jfnk_f_250_d_88_phase_5.000000e-01.mat')
 u = data.new_x;
-u = u(2:end)
-
+u = u(2:end);
 u = reshape(u, 57, [])
+u(2:3:end, 2) = u(2:3:end, 2) + 10^-3*randn(19,1)
+
+
+
 
 dt = 0.05;
 Np = 20; % leave fixed
-TotalSteps = 500;
+TotalSteps = 1000;
 FFTip = 1; % leave fixed
 FFLength = 0; % leave fixed
 vid = 1;
 Nf = 2;%2; % Number of filaments.
 mu = 1; % Fluid viscosity. leave fixed
 L = 2.2*Np
-d = 2*L;%L/2;
+d = 88;%L/2;
 % gamma = 0.1;
 % d = L/exp(gamma * log(L));
 % log(L/d)/log(L)
