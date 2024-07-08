@@ -36,7 +36,7 @@ global d        % Distance between filaments
 % FIXED PARAMETERS
 Nf = 2;
 N = 20;
-ndts = 200;
+% ndts = 200;
 
 % DO NOT ALTER
 

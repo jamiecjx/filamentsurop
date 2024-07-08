@@ -1,6 +1,8 @@
 global d
 global f
 global new_x
+global ndts
+
 data = load("continuationinput.mat")
 
 % save("continuationinput.mat", "d", "f0", "f1", "numf", "new_x")
@@ -16,6 +18,7 @@ f0 = data.f0;
 f1 = data.f1;
 numf = data.numf;
 new_x = data.new_x;
+ndts = 200;
 
 df = (f1-f0)/numf;
 
