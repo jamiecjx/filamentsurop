@@ -42,7 +42,7 @@ T = dataperiod(1);
 start_dt = dataperiod(end-1);
 T_dt = dataperiod(end) - start_dt;
 
-Nphase = 64
+Nphase = 16
 u = zeros(TotalSteps, 3*(N-1)*Nf, Nphase);
 
 parfor i=0:(Nphase-1)
