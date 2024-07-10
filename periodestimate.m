@@ -13,7 +13,6 @@
          end
      end
      differences = diff(y);
-     differences
      p = [differences(end) * dt, y];
  end
 
