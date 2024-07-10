@@ -1,4 +1,4 @@
-function u = searchphase(fa, da)
+function u = searchphase(fa, da, Nphase, TotalSteps, ndtsa, dt)
 
 global new_x	% Current best x
 global ndts		% Number of timesteps taken in period T
@@ -14,7 +14,7 @@ global d        % Distance between filaments
 % FIXED PARAMETERS
 Nf = 2;
 N = 20;
-ndts = 1000;
+ndts = ndtsa;
 % DO NOT ALTER
 
 FFTip = true;
@@ -24,9 +24,8 @@ FFLength = false;
 f = fa;
 d = da;
 
-dt = 0.05;
+
 Np = 20; % leave fixed
-TotalSteps = 1000;
 
 % END ALTER THESE
 inputu = zeros(57,2);
@@ -42,7 +41,7 @@ T = dataperiod(1);
 start_dt = dataperiod(end-1);
 T_dt = dataperiod(end) - start_dt;
 
-Nphase = 16
+
 u = zeros(TotalSteps, 3*(N-1)*Nf, Nphase);
 
 parfor i=0:(Nphase-1)
