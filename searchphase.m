@@ -1,4 +1,4 @@
-function u = searchphase(fa, da, Nphase, TotalSteps, ndtsa, dt)
+function u = searchphase(fa, da, Nphase, TotalSteps, dt)
 
 global new_x	% Current best x
 global ndts		% Number of timesteps taken in period T
@@ -14,7 +14,7 @@ global d        % Distance between filaments
 % FIXED PARAMETERS
 Nf = 2;
 N = 20;
-ndts = ndtsa;
+ndts = 200;
 % DO NOT ALTER
 
 FFTip = true;
@@ -33,7 +33,7 @@ pert = load("fixedperturbation.mat");
 inputu(2:3:end, 2) = pert.pert;
 inputu(2:3:end, 1) = inputu(2:3:end, 2);
 
-out = initialvalueproblem2(f,reshape(inputu,3*(N-1),[]),dt,N,Nf,d,1000,FFTip,FFLength,0);
+out = initialvalueproblem2(f,reshape(inputu,3*(N-1),[]),dt,N,Nf,d,ndts,TotalSteps,FFLength,0);
 
 dataperiod = periodestimate(out(:, end-1), 0.05, false);
 
