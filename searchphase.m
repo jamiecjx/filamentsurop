@@ -53,6 +53,6 @@ parfor i=0:(Nphase-1)
 
     u(:, :, i+1) = initialvalueproblem2(f,reshape(phaseinput,3*(N-1),[]),dt,N,Nf,d,TotalSteps,FFTip,FFLength,0);
 end
-save(sprintf('searchphase_f_%i_d_%i.mat',f,d), ...
+save(sprintf('searchphase_f_%i_d_%i_Nphase_%i_ts_%i_ndts_%i_dt_%i.mat',f,d,Nphase,TotalSteps,ndts,dt), ...
     "f", "d", "u", "out");
 end
