@@ -39,3 +39,7 @@ end
 
 save(sprintf('f0_%i_f1_%i_d_%i_df_%i_phase_%i_ndts_%i.mat',f0,f1,d,df,phase,ndts), ...
     "continuationarray", "f0", "f1", "d", "df", "phase", "ndts");
+
+
+
+% save('f0_200_f1_240_d_88_df_1_phase_5.000000e-01_ndts_400.mat')
