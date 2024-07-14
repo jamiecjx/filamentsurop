@@ -22,6 +22,7 @@ function continuation_d(i)
     dd = (d1-d0)/numd;
     
     continuationarray3d = zeros(size(new_x, 1), numd+1);
+    size(continuationarray3d)
     M = numf+1
     L = numd+1
     
