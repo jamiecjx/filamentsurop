@@ -21,7 +21,7 @@ function continuation_d(i)
     df = (f1-f0)/numf;
     dd = (d1-d0)/numd;
     
-    continuationarray3d = zeros(size(new_x, 1), numf+1, numd+1);
+    continuationarray3d = zeros(size(new_x, 1), numd+1);
     M = numf+1
     L = numd+1
     
@@ -31,10 +31,10 @@ function continuation_d(i)
         d = d0+dd*(j-1);
         fprintf('continuation: starting iteration with f=%i, d=%i',f,d) ;
         JFNK
-        continuationarray3d(:,i,j) = new_x;
+        continuationarray3d(:,j) = new_x;
     end
     
     
-    save(sprintf('f0_%i_f1_%i_d0_%i_d1_%i_df_%i_dd_%i_phase_%i_ndts_%i.mat',f0,f1,d0,d1,df,dd,phase,ndts), ...
+    save(sprintf('f_%i_d0_%i_d1_%i_df_%i_dd_%i_phase_%i_ndts_%i.mat',f,d0,d1,df,dd,phase,ndts), ...
         "continuationarray3d", "f0", "f1", "d", "df", "phase", "ndts");
 end
