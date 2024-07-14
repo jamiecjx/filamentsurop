@@ -18,8 +18,11 @@ function continuation_d(i)
     ndts = data.ndts;
     phase = data.phase;
     
+
     df = (f1-f0)/numf;
     dd = (d1-d0)/numd;
+    
+    new_x = continuationarray(:,i);
     
     continuationarray3d = zeros(size(new_x, 1), numd+1);
     size(continuationarray3d)
@@ -27,7 +30,6 @@ function continuation_d(i)
     L = numd+1
     
     f = f0+df*(i-1);
-    new_x = continuationarray(:,i);
     for j=1:L
         d = d0+dd*(j-1);
         fprintf('continuation: starting iteration with f=%i, d=%i',f,d) ;
