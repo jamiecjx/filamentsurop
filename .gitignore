@@ -1,5 +1,7 @@
 *.log
 *.out
 *.mexa64
+*.asv
+
 
 pbs/
