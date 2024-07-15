@@ -39,7 +39,7 @@ function continuation_d(i)
         JFNK
         continuationarray3d(:,j) = new_x;
         save(sprintf('f_%i_d0_%i_d1_%i_df_%i_dd_%i_phase_%i_ndts_%i.mat',f,d0,d1,df,dd,phase,ndts), ...
-        "continuationarray3d", "f0", "f1", "d", "df", "phase", "ndts");
+        "continuationarray3d", "f", "d0", "d1", "dd", "phase", "ndts");
     end
     
     

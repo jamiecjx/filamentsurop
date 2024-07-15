@@ -2,6 +2,8 @@
 *.out
 *.mexa64
 *.asv
+.mp4
+.png
 
 
 pbs/
