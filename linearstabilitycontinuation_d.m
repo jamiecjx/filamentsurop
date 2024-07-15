@@ -14,6 +14,7 @@ function linearstabilitycontinuation_d(file)
     dd = data.dd;
     numd = (d1-d0)/dd;
     ndts = data.ndts;
+    phase = data.phase;
     
     evalarray = zeros(numd+1, 6);
     evecarray = zeros(numd+1, 114, 6);
@@ -27,6 +28,6 @@ function linearstabilitycontinuation_d(file)
         evecarray(i, :, :) = evec;
     end
     
-    save(sprintf('linearstability_d_d0_%i_d1_%i_f_%i_dd_%i_phase_0.5.mat',d0,d1,f,dd), ...
-        "evalarray", "evecarray", "d0", "d1", "f", "dd");
+    save(sprintf('linearstability_d_d0_%i_d1_%i_f_%i_dd_%i_phase_%i_ndts_%i.mat',d0,d1,f,dd,phase,ndts), ...
+        "evalarray", "evecarray", "d0", "d1", "f", "dd", "phase", "ndts");
 end
