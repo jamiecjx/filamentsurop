@@ -16,7 +16,7 @@ function [EffLieAlgebra] = main2
 %         vid = 1 to plot filament and save video, 0 otherwise
 
 % Variables to get started:
-f = 40;
+f = 44;
 u = zeros(57,2);
 % u(2:3:end, :) = 10^-1*randn(19,2);
 u(2:3:end, 2) = 10^-2*randn(19,1);
@@ -42,7 +42,7 @@ L = 2.2*Np
 gamma = 0.01;
 d = L/exp(gamma * log(L));
 log(L/d)/log(L)
-
+d=44
 
 if vid
     VideoName = sprintf('f_equals_%i_Np_%i_d_%i_video.avi',f,Np,d);
