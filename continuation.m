@@ -35,10 +35,11 @@ for i=1:numf+1
     fprintf('continuation: starting iteration with f=%i',f) ;
     JFNK
     continuationarray(:,i) = new_x;
+    save(sprintf('f0_%i_f1_%i_d_%i_df_%i_phase_%i_ndts_%i.mat',f0,f1,d,df,phase,ndts), ...
+    "continuationarray", "f0", "f1", "d", "df", "phase", "ndts");
 end
 
-save(sprintf('f0_%i_f1_%i_d_%i_df_%i_phase_%i_ndts_%i.mat',f0,f1,d,df,phase,ndts), ...
-    "continuationarray", "f0", "f1", "d", "df", "phase", "ndts");
+
 
 
 
