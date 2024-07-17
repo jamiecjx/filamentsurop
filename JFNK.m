@@ -65,7 +65,7 @@ del  = del     * ds ;
 mndl = mndl    * ds ;
 mxdl = mxdl    * ds ;
 
-info = 0 ;
+info = 1 ;
 info = NewtonHook(@getrhs, @multJ, @multJp, @saveorbit, @dotprd, ...
                mgmres, n, gtol, tol, del, mndl, mxdl, nits, info) ;
 

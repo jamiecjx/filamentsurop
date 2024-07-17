@@ -36,17 +36,17 @@ global d        % Distance between filaments
 % FIXED PARAMETERS
 Nf = 2;
 N = 20;
-ndts = 200;
 
 
 % ALTER THESE
 
 data = load("jfnkdata.mat")
+ndts = data.ndts;
 d = data.d;
 f = data.f;
 new_x = data.new_x;
 
-% save("jfnkdata.mat", "d", "f", "new_x")
+% save("jfnkdata.mat", "d", "f", "new_x", "ndts")
 % d = 88;
 % f = 100;
 % new_x = continuationarray(:, 1);
