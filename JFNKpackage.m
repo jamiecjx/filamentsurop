@@ -86,7 +86,7 @@ info = 1 ;
 info = NewtonHook(@getrhs, @multJ, @multJp, @saveorbit, @dotprd, ...
                mgmres, n, gtol, tol, del, mndl, mxdl, nits, info) ;
 
-save(sprintf('JFNK_f_%i_d_%i',f,d), "new_x");
+save(sprintf('JFNK_f_%i_d_%i_ndts_%i',f,d), "new_x", "f", "d", "ndts");
 
 %*************************************************************************
 % END PROGRAM MAIN
