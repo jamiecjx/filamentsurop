@@ -16,7 +16,7 @@ function [EffLieAlgebra] = main2
 %         vid = 1 to plot filament and save video, 0 otherwise
 
 % Variables to get started:
-f = 44;
+f = 40;
 u = zeros(57,2);
 % u(2:3:end, :) = 10^-1*randn(19,2);
 u(2:3:end, 2) = 10^-2*randn(19,1);
