@@ -6,7 +6,7 @@ function linearstabilitycontinuation_d(file)
     data = load(file)
     
     % save("continuationinputantiphase.mat", "d", "f0", "f1", "numf", "new_x")
-    continuationarray3d = data.continuationarray3d;
+    continuationarray = data.continuationarray;
     
     d0 = data.d0;
     d1 = data.d1;
@@ -21,7 +21,7 @@ function linearstabilitycontinuation_d(file)
     
     parfor i=1:numd+1
         d = d0+dd*(i-1);
-        new_x = continuationarray3d(:, i);
+        new_x = continuationarray(:, i);
         fprintf('floquet: starting iteration with d=%i\n',d) ;
         [eval, evec] = LinearStability(f, d, new_x(1), new_x(2:end), ndts);
         evalarray(i, :) = eval;
