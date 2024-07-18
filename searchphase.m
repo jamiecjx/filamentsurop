@@ -42,8 +42,8 @@ start_dt = dataperiod(end-1);
 T_dt = dataperiod(end) - start_dt;
 
 
-u = zeros(TotalSteps, 3*(N-1)*Nf, Nphase);
-
+un = zeros(TotalSteps, Nphase);
+ut = zeros(3*(N-1)*Nf, Nphase);
 parfor i=0:(Nphase-1)
     phase = i/Nphase
     
@@ -51,8 +51,10 @@ parfor i=0:(Nphase-1)
     
     phaseinput =  [out(start_dt, 1:3*(N-1)), out(end_dt, 3*(N-1)+1:end)]';
 
-    u(:, :, i+1) = initialvalueproblem2(f,reshape(phaseinput,3*(N-1),[]),dt,N,Nf,d,TotalSteps,FFTip,FFLength,0);
+    ivp = initialvalueproblem2(f,reshape(phaseinput,3*(N-1),[]),dt,N,Nf,d,TotalSteps,FFTip,FFLength,0);
+    un(:, i+ 1) = ivp(:, end-1);
+    ut(:, i+ 1) = ivp(end, :);
 end
 save(sprintf('searchphase_f_%i_d_%i_Nphase_%i_ts_%i_ndts_%i_dt_%i.mat',f,d,Nphase,TotalSteps,ndts,dt), ...
-    "f", "d", "u", "out");
+    "f", "d", "un", "ut", "out");
 end
