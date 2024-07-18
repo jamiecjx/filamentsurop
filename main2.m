@@ -17,17 +17,20 @@ function [EffLieAlgebra] = main2
 
 % Variables to get started:
 f = 40;
-u = zeros(57,2);
+% u = zeros(57,2);
 % u(2:3:end, :) = 10^-1*randn(19,2);
-u(2:3:end, 2) = 10^-2*randn(19,1);
-u(2:3:end, 1) = u(2:3:end, 2);
-%data = load('jfnk_f_300_d_88_phase_5.000000e-01.mat')
-%u = data.new_x;
-% u = u(2:end);
-% u = reshape(u, 57, [])
+% u(2:3:end, 2) = 10^-2*randn(19,1);
+% u(2:3:end, 1) = u(2:3:end, 2);
 
-u(2:3:end, 1) = 10^-1*randn(19,1)
-u(2:3:end, 2) = -u(2:3:end, 1) + 10^-2*randn(19,1)
+
+data = load('JFNK_f_40_d_44.mat')
+u = data.new_x;
+u = u(:, end)
+u = u(2:end);
+u = reshape(u, 57, [])
+
+% u(2:3:end, 1) = 10^-1*randn(19,1)
+% u(2:3:end, 2) = -u(2:3:end, 1) + 10^-2*randn(19,1)
 
 dt = 0.05;
 Np = 20; % leave fixed
