@@ -67,7 +67,7 @@ end
 
 axis equal;
 
-zlim([-1, 2.2*N+10]); xlim([-N-10,N+10]); ylim([-N-10,N+10]);
+zlim([-1, 2.2*N+50]); xlim([-N-50,N+50]); ylim([-N-50,N+50]);
 
 xlabel('X'); ylabel('Y'); zlabel('Z')
 
