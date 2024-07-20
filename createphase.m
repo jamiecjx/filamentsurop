@@ -33,9 +33,10 @@ u(2:3:end, 1) = u(2:3:end, 2);
 
 out = initialvalueproblem2(f,reshape(u,3*(N-1),[]),4/f,N,Nf,d,500,FFTip,FFLength,0);
 
-dataperiod = periodestimate(out(:, end-1), 0.05, true);
+dataperiod = periodestimate(out(:, end-1), 4/f, true);
 
 T = dataperiod(1);
+T
 start_dt = dataperiod(end-1);
 T_dt = dataperiod(end) - start_dt;
 

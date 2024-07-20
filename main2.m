@@ -16,23 +16,23 @@ function [EffLieAlgebra] = main2
 %         vid = 1 to plot filament and save video, 0 otherwise
 
 % Variables to get started:
-f = 400;
+f = 300;
 % u = zeros(57,2);
 % u(2:3:end, :) = 10^-1*randn(19,2);
 % u(2:3:end, 2) = 10^-2*randn(19,1);
 % u(2:3:end, 1) = u(2:3:end, 2);
 
 
-% data = load('JFNK_f_40_d_44.mat')
-u = ut(:, 5);
-% u = u(:, end)
-% u = u(2:end);
-% u = reshape(u, 57, [])
+data = load('jfnk_f_300_d_88_phase_0.mat')
+u = data.new_x;
+u = u(:, end);
+u = u(2:end);
+u = reshape(u, 57, [])
 
-% u(2:3:end, 1) = 10^-1*randn(19,1)
-% u(2:3:end, 2) = -u(2:3:end, 1) + 10^-2*randn(19,1)
+u(2:3:end, 1) = u(2:3:end, 1) + 10^-2*randn(19,1)
+u(2:3:end, 2) = u(2:3:end, 2) + 10^-2*randn(19,1)
 
-dt = 0.0039;
+dt = 0.0244;
 Np = 20; % leave fixed
 TotalSteps = 10000;
 FFTip = 1; % leave fixed
@@ -45,7 +45,7 @@ L = 2.2*Np
 gamma = 0.01;
 d = L/exp(gamma * log(L));
 log(L/d)/log(L)
-d=44
+d=88
 
 if vid
     VideoName = sprintf('f_equals_%i_Np_%i_d_%i_video.avi',f,Np,d);
