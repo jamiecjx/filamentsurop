@@ -11,25 +11,25 @@
 %         "continuationarray", "f", "d0", "d1", "dd", "phase", "ndts");
 % end
 
-data=load("linearstability_f0_200_f1_450_d_88_df_1_phase_0.5.mat")
-weval = data.evalarray;
-wevec = data.evecarray;
-
-data2=load("linearstability_f0_450_f1_500_d_88_df_1_phase_0.5.mat")
-
-evalarray = data2.evalarray;
-evecarray = data2.evecarray;
-
-evalarray = cat(1, weval, evalarray(2:end, :));
-evecarray = cat(1, wevec, evecarray(2:end, :, :));
-
-f0=200;
-f1=500;
-df=1;
-d=88;
-
-save(sprintf('linearstability_f0_%i_f1_%i_d_%i_df_%i_phase_0.5.mat',f0,f1,d,df), ...
-        "evalarray", "evecarray", "f0", "f1", "d", "df");
+% data=load("linearstability_f0_200_f1_450_d_88_df_1_phase_0.5.mat")
+% weval = data.evalarray;
+% wevec = data.evecarray;
+% 
+% data2=load("linearstability_f0_450_f1_500_d_88_df_1_phase_0.5.mat")
+% 
+% evalarray = data2.evalarray;
+% evecarray = data2.evecarray;
+% 
+% evalarray = cat(1, weval, evalarray(2:end, :));
+% evecarray = cat(1, wevec, evecarray(2:end, :, :));
+% 
+% f0=200;
+% f1=500;
+% df=1;
+% d=88;
+% 
+% save(sprintf('linearstability_f0_%i_f1_%i_d_%i_df_%i_phase_0.5.mat',f0,f1,d,df), ...
+%         "evalarray", "evecarray", "f0", "f1", "d", "df");
 
 
 % save(sprintf('linearstability_f0_%i_f1_%i_d_%i_df_%i_phase_0.5.mat',f0,f1,d,df), ...
@@ -69,18 +69,18 @@ save(sprintf('linearstability_f0_%i_f1_%i_d_%i_df_%i_phase_0.5.mat',f0,f1,d,df),
 
 
 
-% data = load('f0_200_f1_450_d_88_df_1_phase_5.000000e-01_ndts_400.mat');
-% wh = data.continuationarray;
-% data = load('f0_450_f1_500_d_88_df_1_phase_5.000000e-01_ndts_400.mat');
-% continuationarray = data.continuationarray;
-% disp(norm(wh(:, end) - continuationarray(:, 1)))
-% continuationarray = [wh, continuationarray(:, 2:end)];
-% 
-% f0=200
-% f1=500
-% d=88
-% df=1
-% phase=0.5
-% ndts=400
-% save(sprintf('f0_%i_f1_%i_d_%i_df_%i_phase_%i_ndts_%i.mat',f0,f1,d,df,phase,ndts), ...
-%     "continuationarray", "f0", "f1", "d", "df", "phase", "ndts");
+data = load('f0_200_f1_500_d_88_df_1_phase_5.000000e-01_ndts_400.mat');
+wh = data.continuationarray;
+data = load('f0_500_f1_550_d_88_df_1_phase_5.000000e-01_ndts_400.mat');
+continuationarray = data.continuationarray;
+disp(norm(wh(:, end) - continuationarray(:, 1)))
+continuationarray = [wh, continuationarray(:, 2:end)];
+
+f0=200
+f1=550
+d=88
+df=1
+phase=0.5
+ndts=400
+save(sprintf('f0_%i_f1_%i_d_%i_df_%i_phase_%i_ndts_%i.mat',f0,f1,d,df,phase,ndts), ...
+    "continuationarray", "f0", "f1", "d", "df", "phase", "ndts");
