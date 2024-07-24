@@ -60,27 +60,27 @@
 
 
 
-% hold on
-% for f=41:50
-%     data=load(sprintf('linearstability_d_d0_88_d1_66_f_%i_dd_-1_phase_5.000000e-01_ndts_200.mat', f));
-%     evalarray= data.evalarray;
-%     plot(real(evalarray(:, 1:2)), 'DisplayName',string(f),'Color',[(f-41)/9, 1, 0])
-% end
+hold on
+for f=41:50
+    data=load(sprintf('linearstability_d_d0_88_d1_66_f_%i_dd_-1_phase_5.000000e-01_ndts_200.mat', f));
+    evalarray= data.evalarray;
+    plot(88:-1:66, real(evalarray(:, 1)), 'DisplayName',string(f),'Color',[(f-41)/9, 0.5, 0])
+end
 
 
 
-data = load('f0_200_f1_500_d_88_df_1_phase_5.000000e-01_ndts_400.mat');
-wh = data.continuationarray;
-data = load('f0_500_f1_550_d_88_df_1_phase_5.000000e-01_ndts_400.mat');
-continuationarray = data.continuationarray;
-disp(norm(wh(:, end) - continuationarray(:, 1)))
-continuationarray = [wh, continuationarray(:, 2:end)];
-
-f0=200
-f1=550
-d=88
-df=1
-phase=0.5
-ndts=400
-save(sprintf('f0_%i_f1_%i_d_%i_df_%i_phase_%i_ndts_%i.mat',f0,f1,d,df,phase,ndts), ...
-    "continuationarray", "f0", "f1", "d", "df", "phase", "ndts");
+% data = load('f0_200_f1_500_d_88_df_1_phase_5.000000e-01_ndts_400.mat');
+% wh = data.continuationarray;
+% data = load('f0_500_f1_550_d_88_df_1_phase_5.000000e-01_ndts_400.mat');
+% continuationarray = data.continuationarray;
+% disp(norm(wh(:, end) - continuationarray(:, 1)))
+% continuationarray = [wh, continuationarray(:, 2:end)];
+% 
+% f0=200
+% f1=550
+% d=88
+% df=1
+% phase=0.5
+% ndts=400
+% save(sprintf('f0_%i_f1_%i_d_%i_df_%i_phase_%i_ndts_%i.mat',f0,f1,d,df,phase,ndts), ...
+%     "continuationarray", "f0", "f1", "d", "df", "phase", "ndts");
