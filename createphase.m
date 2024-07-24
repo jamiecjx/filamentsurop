@@ -1,4 +1,4 @@
-function new_x = createphase(fa, da, phase)
+function new_x = createphase(fa, da, phase, ndtsa)
 
 global new_x	% Current best x
 global ndts		% Number of timesteps taken in period T
@@ -14,7 +14,7 @@ global d        % Distance between filaments
 % FIXED PARAMETERS
 Nf = 2;
 N = 20;
-ndts = 400;
+ndts = ndtsa    ;
 % DO NOT ALTER
 
 FFTip = true;
@@ -31,7 +31,7 @@ pert = load("fixedperturbation.mat");
 u(2:3:end, 2) = pert.pert;
 u(2:3:end, 1) = u(2:3:end, 2);
 
-out = initialvalueproblem2(f,reshape(u,3*(N-1),[]),4/f,N,Nf,d,500,FFTip,FFLength,0);
+out = initialvalueproblem2(f,reshape(u,3*(N-1),[]),4/f,N,Nf,d,2000,FFTip,FFLength,0);
 
 dataperiod = periodestimate(out(:, end-1), 4/f, true);
 

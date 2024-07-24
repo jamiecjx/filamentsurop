@@ -14,38 +14,35 @@ function [EffLieAlgebra] = main2
 %         FFTip = 1 if follower force at the tip, 0 otherwise
 %         FFLength = 1 if follower force along the length, 0 otherwise
 %         vid = 1 to plot filament and save video, 0 otherwise
-
+global a
 % Variables to get started:
-f = 300;
-% u = zeros(57,2);
-% u(2:3:end, :) = 10^-1*randn(19,2);
-% u(2:3:end, 2) = 10^-2*randn(19,1);
-% u(2:3:end, 1) = u(2:3:end, 2);
+f = 275;
+u = zeros(57,2);
+u(2:3:end, 2) = 10^-2*randn(19,1);
+u(2:3:end, 1) = -u(2:3:end, 2) + 0*10^-3*randn(19,1);
 
+u = reshape(a(2:end), 57, []);
+% data = load('jfnk_f_300_d_88_phase_0.mat')
+% u = data.new_x;
+% u = u(:, end);
+% u = u(2:end);
+% u = reshape(u, 57, [])
 
-data = load('jfnk_f_300_d_88_phase_0.mat')
-u = data.new_x;
-u = u(:, end);
-u = u(2:end);
-u = reshape(u, 57, [])
+% u(2:3:end, 1) = u(2:3:end, 1) + 10^-2*randn(19,1)
+% u(2:3:end, 2) = u(2:3:end, 1) + 10^-2*randn(19,1)
 
-u(2:3:end, 1) = u(2:3:end, 1) + 10^-2*randn(19,1)
-u(2:3:end, 2) = u(2:3:end, 2) + 10^-2*randn(19,1)
-
-dt = 0.0244;
+dt = 0.0069;
 Np = 20; % leave fixed
-TotalSteps = 10000;
+TotalSteps = 3000;
 FFTip = 1; % leave fixed
 FFLength = 0; % leave fixed
 vid = 1;
 Nf = 2;%2; % Number of filaments.
 mu = 1; % Fluid viscosity. leave fixed
-L = 2.2*Np
+L = 2.2*Np;
 %d = 88;%L/2;
 gamma = 0.01;
-d = L/exp(gamma * log(L));
-log(L/d)/log(L)
-d=88
+d=88 ;
 
 if vid
     VideoName = sprintf('f_equals_%i_Np_%i_d_%i_video.avi',f,Np,d);
@@ -123,7 +120,7 @@ for Steps=1:TotalSteps
         Dmat(:,BroydenIter) = Diff/fac;
         
         Error = NewError;
-    
+     
     end
 
     for i=1:Nf
