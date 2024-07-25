@@ -15,6 +15,7 @@ function [EffLieAlgebra] = main2
 %         FFLength = 1 if follower force along the length, 0 otherwise
 %         vid = 1 to plot filament and save video, 0 otherwise
 global a
+global lol
 % Variables to get started:
 f = 275;
 u = zeros(57,2);
@@ -22,6 +23,7 @@ u(2:3:end, 2) = 10^-2*randn(19,1);
 u(2:3:end, 1) = -u(2:3:end, 2) + 0*10^-3*randn(19,1);
 
 u = reshape(a(2:end), 57, []);
+%u = reshape(lol, 57, []);
 % data = load('jfnk_f_300_d_88_phase_0.mat')
 % u = data.new_x;
 % u = u(:, end);
@@ -31,9 +33,9 @@ u = reshape(a(2:end), 57, []);
 % u(2:3:end, 1) = u(2:3:end, 1) + 10^-2*randn(19,1)
 % u(2:3:end, 2) = u(2:3:end, 1) + 10^-2*randn(19,1)
 
-dt = 0.0069;
+dt = 0.05;
 Np = 20; % leave fixed
-TotalSteps = 3000;
+TotalSteps = 10000;
 FFTip = 1; % leave fixed
 FFLength = 0; % leave fixed
 vid = 1;
