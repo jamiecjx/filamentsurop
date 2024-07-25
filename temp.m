@@ -68,19 +68,29 @@
 % end
 
 
+% 
+% data = load('f0_100_f1_150_d_88_df_1_phase_0_ndts_400.mat');
+% wh = data.continuationarray;
+% data = load('f0_150_f1_200_d_88_df_1_phase_0_ndts_400.mat');
+% continuationarray = data.continuationarray;
+% disp(norm(wh(:, end) - continuationarray(:, 1)))
+% continuationarray = [wh, continuationarray(:, 2:end)];
+% 
+% f0=100
+% f1=200
+% d=88
+% df=1
+% phase=0
+% ndts=400
+% save(sprintf('f0_%i_f1_%i_d_%i_df_%i_phase_%i_ndts_%i.mat',f0,f1,d,df,phase,ndts), ...
+%     "continuationarray", "f0", "f1", "d", "df", "phase", "ndts");
 
-data = load('f0_100_f1_150_d_88_df_1_phase_0_ndts_400.mat');
-wh = data.continuationarray;
-data = load('f0_150_f1_200_d_88_df_1_phase_0_ndts_400.mat');
-continuationarray = data.continuationarray;
-disp(norm(wh(:, end) - continuationarray(:, 1)))
-continuationarray = [wh, continuationarray(:, 2:end)];
-
-f0=100
-f1=200
-d=88
-df=1
-phase=0
-ndts=400
-save(sprintf('f0_%i_f1_%i_d_%i_df_%i_phase_%i_ndts_%i.mat',f0,f1,d,df,phase,ndts), ...
-    "continuationarray", "f0", "f1", "d", "df", "phase", "ndts");
+an = 0
+total = 0
+for i=2:3:114
+    t = periodestimate(u(:, i), 0.0069, false);
+    t = t(1)
+    an = an + t;
+    total = total + 1;
+end
+an/total
