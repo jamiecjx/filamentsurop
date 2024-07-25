@@ -55,15 +55,15 @@ new_x = data.new_x;
 
 FFTip = true;
 FFLength = false;
-mgmres  = 10; %5	% max GMRES iterations
+mgmres  = 5; %5	% max GMRES iterations
 nits    = 30 ;	    % max Newton iterations
 rel_err = 1d-6;%1d-8;	% Relative error |F|/|x| %% i've changed this to be the error |F|: edited bottom of this script, and saveorbit
 
 del     = -1d0 ;	% These rarely need changing for any problem
 mndl    = 1d-20 ;
 mxdl    = 1d+20 ;
-gtol    = 1d-8;%1d-4 ;
-epsJ    = 1d-8;%1d-6 ;
+gtol    = 1d-4;%1d-4 ;
+epsJ    = 1d-6;%1d-6 ;
 
 fixT = 0; % NOT FIXED POINTS
 
