@@ -31,7 +31,7 @@ global lol
 % u(2:3:end, 2) = u(2:3:end, 1) + 10^-2*randn(19,1)
 
 dt = 0.05;
-Np = 40; % leave fixed
+Np = 20; % leave fixed
 TotalSteps = 10000;
 FFTip = 1; % leave fixed
 FFLength = 0; % leave fixed
