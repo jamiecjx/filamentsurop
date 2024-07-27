@@ -44,7 +44,7 @@ data = load('ivp_f_46_d_44.mat');
 EffLieAlgebra = data.EffLieAlgebra;
 u = EffLieAlgebra(end, :)
 u = reshape(u, 117, [])
-d=88 ;
+d=44 ;
 
 if vid
     VideoName = sprintf('f_equals_%i_Np_%i_d_%i_video.avi',f,Np,d);
