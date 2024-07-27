@@ -18,8 +18,8 @@ global a
 global lol
 % Variables to get started:
 
-
-% u = reshape(a(2:end), 57, []);
+% 
+% u = reshape(a(2:end), 57, [])
 %u = reshape(lol, 57, []);
 % data = load('jfnk_f_300_d_88_phase_0.mat')
 % u = data.new_x;
@@ -31,8 +31,8 @@ global lol
 % u(2:3:end, 2) = u(2:3:end, 1) + 10^-2*randn(19,1)
 
 dt = 0.05;
-Np = 20; % leave fixed
-TotalSteps = 10000;
+Np = 40; % leave fixed
+TotalSteps = 30000;
 FFTip = 1; % leave fixed
 FFLength = 0; % leave fixed
 vid = 0;
@@ -40,12 +40,11 @@ Nf = 2;%2; % Number of filaments.
 mu = 1; % Fluid viscosity. leave fixed
 L = 2.2*Np;
 f = 46;
-
-u = zeros(Np*3-3,2);
-u(2:3:end, 2) = 0.5*10^-1*randn(Np-1,1);
-u(2:3:end, 1) = -u(2:3:end, 2) + 0*10^-3*randn(Np-1,1);
-
-d=44 ;
+data = load('ivp_f_46_d_44.mat');
+EffLieAlgebra = data.EffLieAlgebra;
+u = EffLieAlgebra(end, :)
+u = reshape(u, 117, [])
+d=88 ;
 
 if vid
     VideoName = sprintf('f_equals_%i_Np_%i_d_%i_video.avi',f,Np,d);
@@ -148,7 +147,8 @@ end
 if vid
     close(video)
 end
-save(sprintf('ivp_f_%i_d_%i',f,d), "EffLieAlgebra", "f", "d");
+u = EffLieAlgebra(end-15000:end, :);
+save(sprintf('ivp_f_%i_d_%i',f,d), "u", "f", "d");
 end
 
 %%%%%% LOCAL FUNCTIONS %%%%%%
