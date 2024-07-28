@@ -31,7 +31,7 @@ pert = load("fixedperturbation.mat");
 u(2:3:end, 2) = pert.pert;
 u(2:3:end, 1) = u(2:3:end, 2);
 
-out = initialvalueproblem2(f,reshape(u,3*(N-1),[]),4/f,N,Nf,d,2000,FFTip,FFLength,0);
+out = initialvalueproblem2(f,reshape(u,3*(N-1),[]),4/f,N,Nf,d,10000,FFTip,FFLength,0);
 
 dataperiod = periodestimate(out(:, end-1), 4/f, true);
 
