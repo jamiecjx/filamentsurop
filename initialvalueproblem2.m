@@ -89,7 +89,7 @@ for Steps=1:TotalSteps
 
     end
 
-    if mod(Steps, 50)==1
+    if mod(Steps, 200)==1
         fprintf('Step %i/%i required %i Broyden iterations.\n',Steps,TotalSteps,BroydenIter);
     end
 
