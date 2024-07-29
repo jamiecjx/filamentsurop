@@ -13,7 +13,7 @@
          end
      end
      differences = diff(y);
-     p = [differences(end) * dt, y];
+     p = [sum(differences(end-9:end))/10 * dt, y];
  end
 
 % hold on

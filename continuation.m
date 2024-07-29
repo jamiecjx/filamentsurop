@@ -1,8 +1,9 @@
+function continuation(file)
 global d
 global f
 global new_x
 global ndts
-data = load("continuationinput.mat")
+data = load(file)
 
 % save("continuationinput.mat", "d", "f0", "f1", "numf", "new_x", "ndts", "phase")
 

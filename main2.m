@@ -26,25 +26,21 @@ global lol
 % u = u(:, end);
 % u = u(2:end);
 % u = reshape(u, 57, [])
-
-% u(2:3:end, 1) = u(2:3:end, 1) + 10^-2*randn(19,1)
-% u(2:3:end, 2) = u(2:3:end, 1) + 10^-2*randn(19,1)
+u = zeros(57, 2);
+u(2:3:end, 1) = 0.1*randn(19, 1)
+u(2:3:end, 2) = u(2:3:end, 1)
 
 dt = 0.05;
-Np = 40; % leave fixed
-TotalSteps = 30000;
+Np = 20; % leave fixed
+TotalSteps = 10000;
 FFTip = 1; % leave fixed
 FFLength = 0; % leave fixed
-vid = 0;
+vid = 1;
 Nf = 2;%2; % Number of filaments.
 mu = 1; % Fluid viscosity. leave fixed
 L = 2.2*Np;
-f = 46;
-data = load('ivp_f_46_d_44.mat');
-EffLieAlgebra = data.EffLieAlgebra;
-u = EffLieAlgebra(end, :)
-u = reshape(u, 117, [])
-d=44 ;
+f = 41;
+d=88;
 
 if vid
     VideoName = sprintf('f_equals_%i_Np_%i_d_%i_video.avi',f,Np,d);
@@ -146,9 +142,8 @@ end
 
 if vid
     close(video)
-end
-u = EffLieAlgebra(end-15000:end, :);
-save(sprintf('ivp_f_%i_d_%i',f,d), "u", "f", "d");
+    endperiop
+save(sprintf('ivp_f_%i_d_%i',f,d), "EffLieAlgebra", "f", "d");
 end
 
 %%%%%% LOCAL FUNCTIONS %%%%%%
