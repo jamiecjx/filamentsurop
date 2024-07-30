@@ -31,12 +31,12 @@ u = reshape(u, 57, [])
 % u(2:3:end, 1) = 0.1*randn(19, 1)
 % u(2:3:end, 2) = u(2:3:end, 1)
 
-dt = 0.05;
+dt = 0.006842061406367;
 Np = 20; % leave fixed
 TotalSteps = 10000;
 FFTip = 1; % leave fixed
 FFLength = 0; % leave fixed
-vid = 1;
+vid = 0;
 Nf = 2;%2; % Number of filaments.
 mu = 1; % Fluid viscosity. leave fixed
 L = 2.2*Np;
