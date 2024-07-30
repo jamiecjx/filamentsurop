@@ -1,7 +1,7 @@
 %-------------------------------------------------------------------------
 %  estimate phase of solution based off angle of topmost point of filament
 %-------------------------------------------------------------------------
-function [y1, y2] = phaseestimate(un1, un2)
+function  phaseestimate(un1, un2)
      function y=phasepoints(x)
          y = [];
          length(x);
@@ -18,5 +18,9 @@ function [y1, y2] = phaseestimate(un1, un2)
         % plot(u(:, 113))
         % plot(u(:, 56))
         % hold off
+        y = diff(sort([y1, y2]))
+        L = size(y, 2)
+        scatter(1:L, y)
  end
 
+% latest result is converging to in phase.
