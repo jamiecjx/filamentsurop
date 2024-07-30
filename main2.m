@@ -21,14 +21,15 @@ global lol
 % 
 % u = reshape(a(2:end), 57, [])
 %u = reshape(lol, 57, []);
-% data = load('jfnk_f_300_d_88_phase_0.mat')
+% data = load('jfnk_f_275_d_88_phase_0.mat')
 % u = data.new_x;
-% u = u(:, end);
-% u = u(2:end);
-% u = reshape(u, 57, [])
-u = zeros(57, 2);
-u(2:3:end, 1) = 0.1*randn(19, 1)
-u(2:3:end, 2) = u(2:3:end, 1)
+u = a;
+u = u(:, end);
+u = u(2:end);
+u = reshape(u, 57, [])
+% u = zeros(57, 2);
+% u(2:3:end, 1) = 0.1*randn(19, 1)
+% u(2:3:end, 2) = u(2:3:end, 1)
 
 dt = 0.05;
 Np = 20; % leave fixed
@@ -39,7 +40,7 @@ vid = 1;
 Nf = 2;%2; % Number of filaments.
 mu = 1; % Fluid viscosity. leave fixed
 L = 2.2*Np;
-f = 41;
+f = 275;
 d=88;
 
 if vid
@@ -142,7 +143,7 @@ end
 
 if vid
     close(video)
-    endperiop
+end
 save(sprintf('ivp_f_%i_d_%i',f,d), "EffLieAlgebra", "f", "d");
 end
 

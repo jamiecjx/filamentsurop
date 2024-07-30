@@ -13,7 +13,8 @@
          end
      end
      differences = diff(y);
-     p = [sum(differences(end-9:end))/10 * dt, y];
+     k = 5
+     p = [sum(differences(end-k+1:end))/k * dt, y];
  end
 
 % hold on
