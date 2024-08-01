@@ -23,7 +23,7 @@ function linearstabilitycontinuation2d(file)
             ff = f0+df*(i-1);
             dd = d0+df*(j-1);
             new_xx = continuationarray(:, i, j);
-            fprintf('floquet: starting iteration with f=%i\n',ff) ;
+            fprintf('floquet: starting iteration with f=%i, d=%i\n',ff, dd) ;
             [eval, ~] = LinearStability(ff, dd, new_xx(1), new_xx(2:end), ndts);
             evalarray(i, j, :) = eval;
         end
