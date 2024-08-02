@@ -21,10 +21,10 @@ global lol
 % 
 % u = reshape(a(2:end), 57, [])
 %u = reshape(lol, 57, []);
-% data = load('jfnk_f_275_d_88_phase_0.mat')
-% u = data.new_x;
-u = a;
-u = u(:, end);
+data = load('store.mat')
+u = data.storeyooo;
+% u = a;
+% u = u(:, end);
 u = u(2:end);
 u = reshape(u, 57, [])
 % u = zeros(57, 2);
@@ -33,7 +33,7 @@ u = reshape(u, 57, [])
 
 dt = 0.006842061406367;
 Np = 20; % leave fixed
-TotalSteps = 10000;
+TotalSteps = 50000;
 FFTip = 1; % leave fixed
 FFLength = 0; % leave fixed
 vid = 0;
