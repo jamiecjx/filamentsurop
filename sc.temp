@@ -1,0 +1,5 @@
+#!/bin/bash
+for i in {66..88}
+do
+    git add f0_50_f1_100_d_${i}_df_1_phase_5.000000e-01_ndts_400.mat
+done
