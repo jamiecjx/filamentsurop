@@ -33,7 +33,7 @@ u = reshape(u, 57, [])
 
 dt = 0.006842061406367;
 Np = 20; % leave fixed
-TotalSteps = 50000;
+TotalSteps = 100000;
 FFTip = 1; % leave fixed
 FFLength = 0; % leave fixed
 vid = 0;
