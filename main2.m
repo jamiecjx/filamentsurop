@@ -21,15 +21,15 @@ global lol
 % 
 % u = reshape(a(2:end), 57, [])
 %u = reshape(lol, 57, []);
-% data = load('store.mat')
-% u = data.storeyooo;
+data = load('store.mat')
+u = data.a;
 % u = a;
 % u = u(:, end);
-% u = u(2:end);
-% u = reshape(u, 57, [])
+u = u(2:end);
+u = reshape(u, 57, [])
 
-dt = 0.05;
-Np = 40; % leave fixed
+dt = 0.006842061406367;
+Np = 20; % leave fixed
 TotalSteps = 100000;
 FFTip = 1; % leave fixed
 FFLength = 0; % leave fixed
@@ -37,15 +37,15 @@ vid = 0;
 Nf = 2;%2; % Number of filaments.
 mu = 1; % Fluid viscosity. leave fixed
 L = 2.2*Np;
-f = 46;
-d=44;
-
-data = load("fixedperturbation40.mat")
-u = zeros(3*Np-3, 2);
-u(2:3:end, 1) = data.pert;
-u(2:3:end, 2) = -u(2:3:end, 1)+ 0.01*rand()
-
-
+f = 275;
+d=88;
+% 
+% data = load("fixedperturbation40.mat")
+% u = zeros(3*Np-3, 2);
+% u(2:3:end, 1) = data.pert;
+% u(2:3:end, 2) = -u(2:3:end, 1)+ 0.01*rand()
+% 
+% 
 
 
 if vid
