@@ -36,8 +36,8 @@ vid = 0;
 Nf = 2;%2; % Number of filaments.
 mu = 1; % Fluid viscosity. leave fixed
 L = 2.2*Np;
-f = 46;
-d=44;
+f = 275;
+d = 88 ;
 
 % data = load("fixedperturbation40.mat")
 % u = zeros(3*Np-3, 2);
