@@ -16,13 +16,14 @@
 %     "continuationarray", "f0", "f1", "d", "df", "phase", "ndts");
 % end
 
+% do not use
 % for d=66:88
-%     w1 = load(sprintf('f0_41_f1_200_d_%i_df_1_phase_5.000000e-01_ndts_400.mat', d));
-%     delete(sprintf('f0_41_f1_200_d_%i_df_1_phase_5.000000e-01_ndts_400.mat', d));
+%     w1 = load(sprintf('f0_300_f1_400_d_%i_df_1_phase_5.000000e-01_ndts_400.mat', d));
+%     % delete(sprintf('f0_41_f1_200_d_%i_df_1_phase_5.000000e-01_ndts_400.mat', d));
 %     cont1 = w1.continuationarray;
 %     df = 1;
-%     f0 = 41;
-%     f1 = 300;
+%     f0 = 300;
+%     f1 = 400;
 %     ndts = 400;
 %     phase = 0.5;
 %     continuationarray = w1.continuationarray;
@@ -32,15 +33,15 @@
 
 
 
-continuationarray = zeros(115, 260, 23);
+continuationarray = zeros(115, 101, 23);
 for d=66:88
-    w1 = load(sprintf('f0_41_f1_300_d_%i_df_1_phase_5.000000e-01_ndts_400.mat', d));
+    w1 = load(sprintf('f0_300_f1_400_d_%i_df_1_phase_5.000000e-01_ndts_400.mat', d));
     continuationarray(:, :, 89-d) = w1.continuationarray;
 end
 d0=88
 d1=66
-f0=41
-f1=300
+f0=300
+f1=400
 df=1
 dd=-1
 phase=0.5
