@@ -18,18 +18,17 @@ global a
 global lol
 % Variables to get started:
 
-% 
-% u = reshape(a(2:end), 57, [])
-%u = reshape(lol, 57, []);
-% data = load('store.mat')
-% u = data.storeyooo;
+u = reshape(a(2:end), 57, [])
+% u = reshape(lol, 57, []);
+data = load('store.mat')
+u = data.a;
 % u = a;
 % u = u(:, end);
-% u = u(2:end);
-% u = reshape(u, 57, [])
+u = u(2:end);
+u = reshape(u, 57, [])
 
-dt = 0.05;
-Np = 40; % leave fixed
+dt = 0.006842061406367;
+Np = 20; % leave fixed
 TotalSteps = 100000;
 FFTip = 1; % leave fixed
 FFLength = 0; % leave fixed
@@ -40,10 +39,10 @@ L = 2.2*Np;
 f = 46;
 d=44;
 
-data = load("fixedperturbation40.mat")
-u = zeros(3*Np-3, 2);
-u(2:3:end, 1) = data.pert;
-u(2:3:end, 2) = -u(2:3:end, 1)+ 0.001*rand(Np-1, 1)
+% data = load("fixedperturbation40.mat")
+% u = zeros(3*Np-3, 2);
+% u(2:3:end, 1) = data.pert;
+% u(2:3:end, 2) = -u(2:3:end, 1)+ 0.001*rand(Np-1, 1)
 
 
 
@@ -149,7 +148,8 @@ end
 if vid
     close(video)
 end
-save(sprintf('ivp_f_%i_d_%i_Np_%i_st_%i',f,d, Np, TotalSteps), "EffLieAlgebra", "f", "d");
+u = EffLieAlgebra;
+save(sprintf('ivp_f_%i_d_%i_Np_%i_st_%i',f,d, Np, TotalSteps), "u", "f", "d");
 end
 
 %%%%%% LOCAL FUNCTIONS %%%%%%
