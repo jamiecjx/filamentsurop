@@ -13,7 +13,7 @@
          end
      end
      differences = diff(y);
-     k = 80
+     k = 1
      p = [sum(differences(end-k+1:end))/k * dt, y];
  end
 

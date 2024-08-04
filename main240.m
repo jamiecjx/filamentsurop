@@ -43,7 +43,7 @@ d=44;
 data = load("fixedperturbation40.mat")
 u = zeros(3*Np-3, 2);
 u(2:3:end, 1) = data.pert;
-u(2:3:end, 2) = -u(2:3:end, 1)+ 0.01*rand()
+u(2:3:end, 2) = -u(2:3:end, 1)+ 0.001*rand()
 
 
 
