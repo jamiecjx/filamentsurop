@@ -17,7 +17,7 @@ function linearstabilitycontinuation2d(file)
     ndts = data.ndts;
     
     evalarray = zeros(numf+1, numd+1, 6);
-
+    parpool
     parfor i=1:numf+1
         for j=1:L
             f_ = f0+df*(i-1);
