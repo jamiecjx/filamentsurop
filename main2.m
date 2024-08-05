@@ -35,7 +35,7 @@ FFTip = 1; % leave fixed
 FFLength = 0; % leave fixed
 vid = 0;
 Nf = 2;%2; % Number of filaments.
-mu = 1; % Fluid viscosity. leave fixed
+mu = 1; % Fluid viscosity. leave fixed3000
 L = 2.2*Np;
 f = 275;
 d=88;
@@ -137,7 +137,6 @@ for Steps=1:TotalSteps
 
     if mod(Steps, 50)==1
         fprintf('Step %i/%i required %i Broyden iterations.\n',Steps,TotalSteps,BroydenIter);
-        save(sprintf('ivp_f_%i_d_%i',f,d), "EffLieAlgebra", "f", "d");
     end
 
     if vid && mod(Steps,10)==1
