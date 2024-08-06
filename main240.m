@@ -137,7 +137,6 @@ for Steps=1:TotalSteps
 
     if mod(Steps, 50)==1
         fprintf('Step %i/%i required %i Broyden iterations.\n',Steps,TotalSteps,BroydenIter);
-        save(sprintf('ivp_f_%i_d_%i',f,d), "EffLieAlgebra", "f", "d");
     end
 
     if vid && mod(Steps,10)==1
