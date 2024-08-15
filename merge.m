@@ -40,16 +40,16 @@
 
 continuationarray = zeros(115, 101, 23);
 for d=66:88
-    w1 = load(sprintf('f0_100_f1_200_d_%i_df_1_phase_0_ndts_400.mat', d));
+    w1 = load(sprintf('f0_400_f1_500_d_%i_df_1_phase_5.000000e-01_ndts_400.mat', d));
     continuationarray(:, :, 89-d) = w1.continuationarray;
 end
 d0=88
 d1=66
-f0=100
-f1=200
+f0=400
+f1=500
 df=1
 dd=-1
-phase=0
+phase=0.5
 ndts=400
 save(sprintf('2d_f0_%i_f1_%i_df_%i_d0_%i_d1_%i_dd_%i_phase_%i_ndts_%i.mat', ...
     f0, f1, df, d0, d1, dd, phase, ndts), "continuationarray", 'f0', 'f1', 'df', 'd0', 'd1', 'dd', 'phase', 'ndts')
