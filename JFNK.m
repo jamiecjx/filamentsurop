@@ -31,7 +31,7 @@ global FFTip    % True if simulation is for a follower force at the tip
 global FFLength % True if simulation is for a follower force along the filament length
 global Nf       % Number of filaments
 global d        % Distance between filaments
-
+global infot
 % Simulation parameters (to edit)
 % FIXED PARAMETERS
 Nf = 2;
@@ -68,7 +68,7 @@ mxdl = mxdl    * ds ;
 info = 1 ;
 info = NewtonHook(@getrhs, @multJ, @multJp, @saveorbit, @dotprd, ...
                mgmres, n, gtol, tol, del, mndl, mxdl, nits, info) ;
-disp(i)
+infot = info;
 %*************************************************************************
 % END PROGRAM MAIN
 %*************************************************************************

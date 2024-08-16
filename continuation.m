@@ -4,7 +4,7 @@ global f
 global new_x
 global ndts
 data = load(file)
-
+global infot
 % save("continuationinput.mat", "d", "f0", "f1", "numf", "new_x", "ndts", "phase")
 
 
@@ -24,7 +24,7 @@ ndts = data.ndts;
 phase = data.phase;
 
 df = (f1-f0)/numf;
-
+infot = 0;
 continuationarray = zeros(size(new_x, 1), numf+1);
 continuationarray(:,1) = new_x;
 sprintf('f0_%i_f1_%i_d_%i_df_%i_phase_0.mat',f0,f1,d,df)
@@ -35,6 +35,9 @@ for i=1:numf+1
     f = f0+df*(i-1);
     fprintf('continuation: starting iteration with f=%i',f) ;
     JFNK
+    if infot ~= 0
+        break
+    end
     continuationarray(:,i) = new_x;
     save(sprintf('f0_%i_f1_%i_d_%i_df_%i_phase_%i_ndts_%i.mat',f0,f1,d,df,phase,ndts), ...
     "continuationarray", "f0", "f1", "d", "df", "phase", "ndts");
