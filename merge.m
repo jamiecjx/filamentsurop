@@ -38,21 +38,21 @@
 
 
 
-% continuationarray = zeros(115, 101, 23);
-% for d=66:88
-%     w1 = load(sprintf('f0_400_f1_500_d_%i_df_1_phase_5.000000e-01_ndts_400.mat', d));
-%     continuationarray(:, :, 89-d) = w1.continuationarray;
-% end
-% d0=88
-% d1=66
-% f0=400
-% f1=500
-% df=1
-% dd=-1
-% phase=0.5
-% ndts=400
-% save(sprintf('2d_f0_%i_f1_%i_df_%i_d0_%i_d1_%i_dd_%i_phase_%i_ndts_%i.mat', ...
-%     f0, f1, df, d0, d1, dd, phase, ndts), "continuationarray", 'f0', 'f1', 'df', 'd0', 'd1', 'dd', 'phase', 'ndts')
+continuationarray = zeros(115, 101, 23);
+for d=66:88
+    w1 = load(sprintf('f0_200_f1_300_d_%i_df_1_phase_0_ndts_400.mat', d));
+    continuationarray(:, :, 89-d) = w1.continuationarray;
+end
+d0=88
+d1=66
+f0=200
+f1=300
+df=1
+dd=-1
+phase=0
+ndts=400
+save(sprintf('2d_f0_%i_f1_%i_df_%i_d0_%i_d1_%i_dd_%i_phase_%i_ndts_%i.mat', ...
+    f0, f1, df, d0, d1, dd, phase, ndts), "continuationarray", 'f0', 'f1', 'df', 'd0', 'd1', 'dd', 'phase', 'ndts')
 
 
 % w1 = load('2d_f0_41_f1_100_df_1_d0_88_d1_66_dd_-1_phase_5.000000e-01_ndts_400.mat');
@@ -97,26 +97,26 @@
 
 
 
-for d=66:88
-    file1='f0_200_f1_300_d_%i_df_1_phase_0_ndts_400.mat'
-    file2='f0_250_f1_300_d_%i_df_1_phase_0_ndts_400.mat'
-    w1 = load(sprintf(file1, d));
-    w2 = load(sprintf(file2, d));
-    % delete(sprintf(file1, d));
-    % delete(sprintf(file2, d));
-    cont1 = w1.continuationarray;
-    cont2 = w2.continuationarray;
-
-    df = 1;
-    f0 = 200;
-    f1 = 300;
-    ndts = 400;
-    phase = 0;
-
-
-    norm(cont1(:, 51) - cont2(:, 1))
-    continuationarray = cont1;
-    continuationarray(:, 51:end) = cont2;
-    save(sprintf('f0_%i_f1_%i_d_%i_df_%i_phase_%i_ndts_%i.mat',f0,f1,d,df,phase,ndts), ...
-    "continuationarray", "f0", "f1", "d", "df", "phase", "ndts");
-end
+% for d=66:88
+%     file1='f0_200_f1_300_d_%i_df_1_phase_0_ndts_400.mat'
+%     file2='f0_250_f1_300_d_%i_df_1_phase_0_ndts_400.mat'
+%     w1 = load(sprintf(file1, d));
+%     w2 = load(sprintf(file2, d));
+%     % delete(sprintf(file1, d));
+%     % delete(sprintf(file2, d));
+%     cont1 = w1.continuationarray;
+%     cont2 = w2.continuationarray;
+% 
+%     df = 1;
+%     f0 = 200;
+%     f1 = 300;
+%     ndts = 400;
+%     phase = 0;
+% 
+% 
+%     norm(cont1(:, 51) - cont2(:, 1))
+%     continuationarray = cont1;
+%     continuationarray(:, 51:end) = cont2;
+%     save(sprintf('f0_%i_f1_%i_d_%i_df_%i_phase_%i_ndts_%i.mat',f0,f1,d,df,phase,ndts), ...
+%     "continuationarray", "f0", "f1", "d", "df", "phase", "ndts");
+% end
